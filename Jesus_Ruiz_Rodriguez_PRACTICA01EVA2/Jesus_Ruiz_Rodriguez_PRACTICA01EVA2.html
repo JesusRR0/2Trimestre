@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Punto</title>
+</head>
+<body>
+    <script>
+        function Punto(x,y){
+            this.x = x;
+            this.y = y;
+
+            this.CONSTRUCTOR = function(x=0, y=0){
+                this.x = x;
+                this.y = y;
+            }
+
+            this.cambiar = function(x,y){
+                this.x = x;
+                this.y = y;
+
+                console.log(`Se cambiaron las coordenadas a (${this.x},${this.y})`);
+            }
+
+            this.copia = function(){
+                let copia = new Punto(this.x, this.y);
+                console.log(copia);
+            }
+
+            this.iguales = function(q){
+                if(this.x == q.x && this.y == q.y){
+                    console.log("Son puntos iguales");
+                }else{
+                    console.log("Son puntos desiguales");
+                }
+            }
+
+            this.suma = function(q){
+                this.x += q.x;
+                this.y += q.y;
+
+                console.log(`Las suma de las coordenadas son (${this.x},${this.y})`);
+            }
+
+            this.toString = function(){
+                console.log(`(${this.x},${this.y})`);
+            }
+        }
+
+        let p1 = new Punto(3,5);
+        let p2 = new Punto(5,1);
+
+        p1.toString();
+        p2.toString();
+        p1.copia();
+        p1.cambiar(6,7);
+        p1.iguales(p2);
+        p1.suma(p2);
+        
+        
+
+        
+
+    </script>
+</body>
+</html>

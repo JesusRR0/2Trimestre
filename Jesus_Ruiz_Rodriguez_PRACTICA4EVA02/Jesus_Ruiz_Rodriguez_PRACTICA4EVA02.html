@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+</head>
+<body>
+    <script>
+        let permiso = true;
+        //creacion del bucle para la introduccion de datos
+        do{
+            let resultado;
+            //primera fecha introducida la cual se obtienen sus datos mediante split
+            let fecha1 = prompt("Introduzca primera fecha con el formato dd/mm/yyyy");
+            var f1 = fecha1.split('/');
+            
+            //segunda fecha introducida la cual se obtienen sus datos mediante split
+            let fecha2 = prompt("Introduzca segunda fecha con el formato dd/mm/yyyy");
+            var f2 = fecha2.split('/');
+
+            //creacion de fechas como objetos segun los datos introducidos en el prompt
+            let fechaReal1 = new Date(f1[2],f1[1],f1[0]);
+            let fechaReal2 = new Date(f2[2],f2[1],f2[0]);
+
+            //variables minuto, hora y dia para poder pasar los milisegundos a dias
+            const minuto = 1000 * 60; 
+            const hora = minuto * 60; 
+            const dia = hora * 24;
+            
+            //se redondean los milisegundos obtenidos por gettime con la variable dia, obteniendo asi los dias en lugar de los milisegundos
+            let tiempo1 = Math.round(fechaReal1.getTime() / dia);
+            let tiempo2 = Math.round(fechaReal2.getTime() / dia);
+
+            //haremos la operacion con la fecha mayor para evitar errores
+            if(tiempo1<tiempo2){
+                resultado = tiempo2-tiempo1;
+            }else{
+                resultado = tiempo1-tiempo2;
+            }
+            
+            document.write("La diferencia en dias, entre las dos fechas es: "+resultado);
+
+            //comprobacion de datos mediante una expresion regular que pide la fecha con el formato dd/mm/aaaa
+            if(!fecha1.match(/^([0][0-9]|[1][0-9]|[2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][0-9][0-9]|[2][0][0][0-9]|[2][0][1][0-9]|[2][0][2][0-2])$/)){
+                permiso = false;
+                alert("Primera fecha incorrecta");
+
+            }else if(!fecha2.match(/^([0][0-9]|[1][0-9]|[2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][0-9][0-9]|[2][0][0][0-9]|[2][0][1][0-9]|[2][0][2][0-2])$/)){
+                permiso = false;
+                alert("Segunda fecha incorrecta");
+            }else{
+                permiso = true;
+            }
+
+
+        }while(permiso == false);
+
+    </script>
+</body>
+</html>

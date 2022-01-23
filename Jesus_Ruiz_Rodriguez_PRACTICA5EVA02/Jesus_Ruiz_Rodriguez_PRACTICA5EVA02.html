@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="pulsar()">¡¡Nos vamos!!</button>
+    <script>
+        //funcion que se lleva a cabo al pulsar el boton que redirecciona a google
+        function pulsar(){
+            location.href="https://www.google.es";
+        }
+        //funcion que se lleva a cabo al no pulsar el boton que redirecciona a duckduckgo
+        function goduck(){
+            location.href="https://duckduckgo.com";
+        }
+        setTimeout ("goduck()", 5000);
+    </script>
+</body>
+</html>
