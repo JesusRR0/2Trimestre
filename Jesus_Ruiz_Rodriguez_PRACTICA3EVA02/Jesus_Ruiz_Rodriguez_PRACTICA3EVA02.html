@@ -8,11 +8,29 @@
 </head>
 <body>
     <script>
+        let permiso = false;
+
+
+        do{
         let user = prompt("Introduzca un nombre de usuario");
         let pass = prompt("Introduzca una contraseña");
 
-        user.match(/^[a-zA-Z0-9]{8,12}$/);
-        pass.match(/^([A-Z].+[a-z].+[0-9].+[\W].+).{8,12}$/);
+        //expresion regular que permite numeros, letras mayusculas y minisculas entre 8 y 12 digitos
+        if(!user.match(/^[a-zA-Z0-9]{8,12}$/)){
+            alert("Usuario no valido");
+        //expresion regular que obliga a escribir al menos una mayuscula, minuscula, numero y caracter no alfanumerico entre 8 y 12 caracteres
+        }else if(!pass.match(/(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+\W)\S{8,12}/)){
+            alert("Contraseña no valida");
+        }else{
+            permiso = true;
+        }
+
+        
+        
+
+        }while(permiso == false)
+        
+       
     </script>
 </body>
 </html>
