@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+</head>
+<body>
+    <!-- div con el mensaje -->
+    <div><p id="pulse">Pulse Alt+F12 y obtenga una nueva imagen de fondo</p></div>
+    <style>
+        /* display flex al div para centrarlo */
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        /* css en el parrafo para el fondo negro y que la imagen se centre al mostrarse */
+        #pulse{
+            background-color: black;
+            color:whitesmoke;
+            text-align: center;
+            width:55%;
+            border-radius:7px;
+            height:20vw;
+            padding: 5vw;
+            background-position: center;
+        }
+    </style>
+    
+    <script>
+        let parrafo = document.getElementById("pulse");
+        // evento en el documento cuando se presione una tecla        
+        document.addEventListener('keydown', (e) =>{
+            //si se presionan Alt y F12 al mismo tiempo se cambiara el backgroundImage del fondo del cuado negro por una imagen aleatoria
+            
+            if (e.altKey && e.key =='F12'){
+                console.log("23");
+                parrafo.style.backgroundImage = "url('https://source.unsplash.com/random')";
+            }  
+        });
+        
+    </script>
+</body>
+</html>

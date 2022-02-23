@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2 Eva 2</title>
+</head>
+
+<body>
+    <script>
+        //"clase" ordenador con ciertos valores por defecto 
+        function Ordenador(marca, modelo, ram = 4, discoDuro = 512, pulgadas = 17) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ram = ram;
+            this.discoDuro = discoDuro;
+            this.pulgadas = pulgadas;
+            //toString para mostrar los atributos de Ordenador
+            this.toString = function() {
+                return ("marca = " + marca + " modelo = " + modelo + " ram = " + ram + " discoDuro = " + discoDuro + " pulgadas  = " + pulgadas);
+            }
+        }
+        //"clase" Portatil con ciertos valores por defecto
+        function Portatil(marca, modelo, ram, discoDuro = 256, pulgadas = 13, autonomia = 4) {
+            //se heredan las caracteristicas del ordenador y su toString pero se asignan los valores por defecto del Portatil
+            this.__proto__ = new Ordenador(marca, modelo, ram, discoDuro, pulgadas, autonomia);
+            this.autonomia = autonomia;
+        }
+        //funcion que crea las clases y las muestra 
+        function informatica() {
+            let ordenador1 = new Ordenador("Apple", "10.0.1");
+            let ordenador2 = new Ordenador();
+            let portatil1 = new Portatil();
+            let portatil2 = new Portatil("Dell", "8.2");
+
+            console.log(ordenador1.toString());
+            console.log(ordenador2.toString());
+            console.log(portatil1.toString());
+            console.log(portatil2.toString());
+        }
+        //llamada de la funcion informatica
+        informatica();
+    </script>
+</body>
+
+</html>

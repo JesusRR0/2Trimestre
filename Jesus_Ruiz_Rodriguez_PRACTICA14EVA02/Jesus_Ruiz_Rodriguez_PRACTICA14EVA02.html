@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14</title>
+</head>
+<body>
+    <!-- div draggable para poder hacer funciones de arrastrado en el mismo -->
+    <div id="origen" draggable = "true">
+        <p>Soy arrastrable</p>
+    </div>
+
+    <!-- div de destino -->
+    <div id="destino">
+        <p>Soy el destino</p>
+    </div>
+
+    <style>
+        #origen, #destino{
+            width:200px;
+            height:100px;
+            border:1px solid black;
+            float:left;
+            margin:100px;
+            margin-left:400px;
+            padding:10px;
+        }
+
+        #origen{
+            background-color: yellow;
+        }
+
+    </style>
+
+    <script>
+        
+        // recepcion de div de origen y destino
+        let origen = document.getElementById("origen");
+        let destino = document.getElementById("destino");
+
+        //EVENTOS
+
+        //al arrastrar el origen que su opacidad disminuya un 50%
+        origen.addEventListener('drag', ()=>{
+            origen.style.opacity = 0.5;
+        });
+        // al soltar el origen volvera a su normalidad, en caso de que no se suelte dentro del destino
+        origen.addEventListener('dragend', ()=>{
+            origen.style.opacity = 1;
+        });
+        // al arrastrar el origen al destino cambiara el fondo a color rojo
+        destino.addEventListener('dragenter', ()=>{
+            destino.style.backgroundColor = "red";
+        });
+        // se desactiva la funcion dragover para que funcione el drop
+        destino.addEventListener('dragover', (e)=>{
+            e.preventDefault();
+        });
+        //al soltar el origen en el destino se cambiara el contenido a ¡Lo has logrado! y desaparecera el origen
+        destino.addEventListener('drop', (e)=>{
+
+            if (e.target.id == "destino") {
+                e.target.innerHTML = "¡Lo has logrado!";
+                origen.style.visibility ="hidden";
+            }
+        });
+
+    </script>
+</body>
+</html>

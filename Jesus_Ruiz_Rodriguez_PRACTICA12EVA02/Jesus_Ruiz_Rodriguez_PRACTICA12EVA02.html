@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cuadro"></div>
+
+    <style>
+        #cuadro{
+            margin: auto;
+            margin-top:10%;
+            width:200px;
+            height:200px;
+            border:2px solid black;
+        }
+    </style>
+    
+    <script>
+        //guardamos el div mediante su id
+        let div = document.getElementById("cuadro");
+
+        //evento, cuando se mueva el raton al interior del cuadrado se cambiara el color de fondo a verde
+        div.addEventListener("mouseenter", (e)=>{
+            div.style.backgroundColor = "green";
+        });
+        //evento, cuando presione el boton principal se cambiara el color de fondo a rojo y con el boton secundario a rojo 
+        div.addEventListener("mousedown", (e)=>{
+            
+            if(e.button==0){
+                div.style.backgroundColor = "red";
+            }else if(e.button==2){
+                div.style.backgroundColor = "blue";
+            }
+        });
+        //evento para volver al color principal en caso de que no se pulse ningun boton
+        div.addEventListener("mouseup", (e)=>{
+
+            if(e){
+                div.style.backgroundColor = "green"; 
+            }
+        }); 
+        
+        //evento para no mostrar el menu contextual al pulsar el click derecho
+        document.addEventListener("contextmenu", (e)=>{
+            e.preventDefault();
+        });
+        
+    </script>
+</body>
+</html>

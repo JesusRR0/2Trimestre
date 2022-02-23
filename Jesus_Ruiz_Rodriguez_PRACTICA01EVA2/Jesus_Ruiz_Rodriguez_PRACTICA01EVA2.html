@@ -8,27 +8,28 @@
 </head>
 <body>
     <script>
+        //creamos la "clase" Punto que admite 2 coordenadas por parametros x,y
         function Punto(x,y){
             this.x = x;
             this.y = y;
-
+            //valores por defecto que obtendra la clase en caso de que no se introduzcan coordenadas
             this.CONSTRUCTOR = function(x=0, y=0){
                 this.x = x;
                 this.y = y;
             }
-
+            //funcion para modificar los valores establecidos anteriormente
             this.cambiar = function(x,y){
                 this.x = x;
                 this.y = y;
 
                 console.log(`Se cambiaron las coordenadas a (${this.x},${this.y})`);
             }
-
+            //funcion que genera un punto con los valores del anterior punto
             this.copia = function(){
                 let copia = new Punto(this.x, this.y);
                 console.log(copia);
             }
-
+            //funcion que comprueba si dos puntos son iguales y muestra un mensaje segun el resultado
             this.iguales = function(q){
                 if(this.x == q.x && this.y == q.y){
                     console.log("Son puntos iguales");
@@ -36,33 +37,33 @@
                     console.log("Son puntos desiguales");
                 }
             }
-
+            //funcion que suma las coordenadas X y las coordenadas Y de los dos puntos anteriores
             this.suma = function(q){
                 this.x += q.x;
                 this.y += q.y;
 
                 console.log(`Las suma de las coordenadas son (${this.x},${this.y})`);
             }
-
+            //toString para mostrar los valores de los puntos creados
             this.toString = function(){
                 console.log(`(${this.x},${this.y})`);
             }
         }
-
+        //creacion de 2 puntos 
         let p1 = new Punto(3,5);
         let p2 = new Punto(5,1);
-
+        //se muestra los valores de los puntos
         p1.toString();
         p2.toString();
+        //se crea una copia del primer punto
         p1.copia();
+        //se modifican los valores del primer punto
         p1.cambiar(6,7);
+        //se hace la comprobacion para ver si son iguales los 2 puntos
         p1.iguales(p2);
+        //suma de las coordenadas de los 2 puntos
         p1.suma(p2);
         
-        
-
-        
-
     </script>
 </body>
 </html>
